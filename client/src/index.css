@@ -1,0 +1,117 @@
+
+@import "tailwindcss";
+
+:root {
+    --store-maroon: #741d29;
+    --store-maroon-dark: #54131c;
+    --store-maroon-light: #8d2734;
+    --store-gold: #c69b43;
+    --store-gold-light: #f3dfaa;
+    --store-cream: #fffaf0;
+    --store-cream-dark: #f8efd9;
+    --store-border: #e8d4a7;
+    --store-text: #401a18;
+    background-color : #fffaf0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background: var(--store-cream);
+    background-color: var(--store-cream);
+}
+
+body {
+    @apply text-sm;
+    background: var(--store-cream);
+    color: var(--store-text);
+    padding-top: 7rem;
+    margin: 0;
+    background-color: var(--store-cream);
+}
+
+button,
+a,
+input {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    cursor: pointer;
+}
+
+::selection {
+    background: var(--store-gold-light);
+    color: var(--store-maroon-dark);
+}
+
+/* Shared store styles */
+.store-panel {
+    background: #fffdf7;
+    border: 1px solid var(--store-border);
+    border-radius: 12px;
+}
+
+.store-button {
+    background: var(--store-maroon);
+    color: #fffaf0;
+    border: 1px solid var(--store-maroon);
+    border-radius: 8px;
+    transition: background 180ms ease, transform 180ms ease;
+}
+
+.store-button:hover {
+    background: var(--store-maroon-dark);
+}
+
+.store-button-gold {
+    background: var(--store-gold);
+    color: var(--store-maroon-dark);
+    border: 1px solid var(--store-gold);
+    border-radius: 8px;
+}
+
+.store-button-gold:hover {
+    background: #d7b45e;
+}
+
+.store-heading {
+    color: var(--store-maroon);
+    font-weight: 800;
+}
+
+.store-input {
+    background: #fffdf7;
+    color: var(--store-text);
+    border: 1px solid var(--store-border);
+    border-radius: 8px;
+}
+
+.store-input:focus {
+    outline: 2px solid var(--store-gold);
+    outline-offset: 1px;
+}
+
+.no-scrollbar {
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+@media (max-width: 1023px) {
+    body {
+        padding-top: 7.5rem;
+    }
+}

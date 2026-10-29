@@ -1,0 +1,26 @@
+
+import UserModel from "../models/user.model.js";
+
+const adminMiddleware = async (req, res, next) => {
+    try {
+        const user = await UserModel.findById(req.userId).select("role");
+
+        if (!user || user.role !== "ADMIN") {
+            return res.status(403).json({
+                message: "Admin access required.",
+                error: true,
+                success: false
+            });
+        }
+
+        next();
+    } catch (error) {
+        return res.status(500).json({
+            message: "Failed to verify admin permissions.",
+            error: true,
+            success: false
+        });
+    }
+};
+
+export default adminMiddleware;
