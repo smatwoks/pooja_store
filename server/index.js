@@ -17,11 +17,24 @@ import cartRoutes from "./routes/cart.route.js"
 dotenv.config()
 
 const app = express()
+// app.use(cors({
+//     origin: process.env.CLIENT_URL,
+//     methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+//     credentials: true
+// }));
+
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  "https://pooja-store-5kca.vercel.app/",
+].filter(Boolean);
+
 app.use(cors({
-    origin: process.env.CLIENT_URL,
-    methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
-    credentials: true
+  origin: allowedOrigins,
+  methods: ["GET", "HEAD", "POST", "PUT", "PATCH", "DELETE"],
+  credentials: true,
 }));
+
+app.use(express.json());
 
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
